@@ -20,7 +20,7 @@ public class SecurityConfig {
         http
                 //security attack we're temporararily dissabling
                 .csrf(csrf -> csrf.disable())
-
+                .httpBasic(httpBasic -> httpBasic.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/users/register", "/api/hello", "/h2-console/**").permitAll()
                         .anyRequest().authenticated()
