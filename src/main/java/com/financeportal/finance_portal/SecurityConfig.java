@@ -24,6 +24,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/users/register", "/api/hello", "/h2-console/**").permitAll()
                         .requestMatchers("/api/users/register", "/api/users/login", "/api/hello", "/h2-console/**").permitAll()
+                        .requestMatchers("/api/users/register", "/api/users/login", "/api/hello", "/api/accounts/**", "/h2-console/**").permitAll()
+
                         .anyRequest().authenticated()
                 )
                 .headers(headers -> headers.frameOptions(frame -> frame.disable()));
